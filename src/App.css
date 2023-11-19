@@ -252,7 +252,7 @@ button:hover {
 /* smart phone (big) */
 @media only screen and (min-width: 376px) {
   html {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   button {
@@ -291,6 +291,10 @@ button:hover {
 
 /* PC */
 @media only screen and (min-width: 1200px) {
+  html {
+    font-size: 16px;
+  }
+
   .result,
   .count {
     font-size: 1.5rem;
