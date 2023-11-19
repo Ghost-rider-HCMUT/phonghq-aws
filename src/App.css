@@ -162,6 +162,10 @@ body {
   text-align: center;
 }
 
+.input {
+  margin-bottom: 20px;
+}
+
 .answer {
   width: 80%;
   border-bottom: solid 4px #cbe2d7 !important;
@@ -257,7 +261,7 @@ button:hover {
   }
 
   .answer {
-    width: 50%;
+    width: 40%;
   }
 
   .button-panel {
@@ -294,10 +298,6 @@ button:hover {
 
   .box-mode select {
     font-size: 1.5rem;
-  }
-
-  .input {
-    margin-bottom: 5%;
   }
 
   .achive,
