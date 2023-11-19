@@ -1,38 +1,345 @@
-.App {
+html {
+  font-size: 12px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url("../public/images/Background.jpg") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  font-family: "Mochiy Pop One", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  height: 100vh;
+  /* font-weight: lighter; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-mode {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.box-mode h2 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mode div {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.box-mode select {
+  height: auto;
+  box-shadow: 0px 3px 4px gray;
+  font-size: 0.75rem;
+  width: 40%;
+  background-color: aquamarine;
+  font-family: "Mochiy Pop One", sans-serif;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.mode-time {
+  margin-bottom: 1rem;
+}
+
+.button-main {
+  background-image: url("../public/images/bg.jpg");
+  background-size: 100% 100%;
+  border-radius: none;
+  border: none;
+  box-shadow: none;
+  width: 12rem;
+  height: 3.5rem;
+  font-size: 2rem;
+  color: antiquewhite;
+  letter-spacing: 3px;
+  z-index: 100;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-family: "Mochiy Pop One", sans-serif;
+}
+
+.button-main:hover {
+  color: #ef3349;
+}
+
+.frame {
+  height: 4rem;
+  width: 11rem;
+  background-image: url("../public/images/frame.jpg");
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.score {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.medal {
+  width: 6rem;
+  height: 6rem;
+  z-index: 1000;
+  background-size: 100% 100%;
+  padding: 0;
+  margin: 0 auto;
+  display: none;
+}
+
+.medal1 {
+  display: block;
+  background-image: url("../public/images/gold.jpg");
+}
+
+.medal2 {
+  display: block;
+  background-image: url("../public/images/silver.jpeg");
+}
+
+.medal3 {
+  display: block;
+  background-image: url("../public/images/bronze.jpeg");
+}
+
+.medal4 {
+  display: block !important;
+}
+
+.note {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px;
+  display: none;
+}
+
+.result,
+.count {
+  text-align: center;
+  font-size: 1.5rem;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  /* background-color:antiquewhite; */
+}
+
+.count {
+  margin-top: -50px;
+  margin-bottom: 30px;
+}
+
+.result {
+  margin-bottom: 20px;
+}
+
+.calculator {
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+  margin: auto;
+  width: max-content;
+}
+
+.input,
+.answer {
+  letter-spacing: 4px;
+  margin: auto;
+  width: auto;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.answer {
+  width: 80%;
+  border-bottom: solid 4px #cbe2d7 !important;
+  position: relative;
+}
+
+.answer span {
+  font-size: 8px;
+  padding: 5px;
+  background-color: #cbe2d7;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 20%;
+  right: 0;
+}
+
+.row {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 8px;
+}
+
+.achive,
+.time {
+  padding: 0;
+  font-size: 0.8rem;
+  margin: 0;
+  margin-bottom: 0.25rem;
+  color: green;
+}
+
+.button-panel {
+  display: grid;
+  gap: 0.4rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1rem;
+}
+
+.itemC,
+.item0,
+.itemNext {
+  order: 1;
+}
+.item1,
+.item2,
+.item3 {
+  order: 2;
+}
+.item4,
+.item5,
+.item6 {
+  order: 3;
+}
+.item7,
+.item8,
+.item9 {
+  order: 4;
+}
+
+.button-panel button {
+  font-family: "Mochiy Pop One", sans-serif;
+  width: 4rem;
+  height: 4rem;
+  margin: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  background-color: #f3f3f3;
+  color: #ef3349;
+  cursor: pointer;
+  border-radius: 35%;
+  font-weight: bold;
+}
+
+button:hover {
+  color: gainsboro;
+  background-color: #ef3349;
+}
+
+/* smart phone (big) */
+@media only screen and (min-width: 376px) {
+  html {
+    font-size: 16px;
   }
-  to {
-    transform: rotate(360deg);
+
+  button {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .answer {
+    width: 50%;
+  }
+
+  .button-panel {
+    gap: 0.25rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .item1,
+  .item2,
+  .item3,
+  .itemNext {
+    order: 1;
+  }
+  .item4,
+  .item5,
+  .item6,
+  .item0 {
+    order: 2;
+  }
+  .item7,
+  .item8,
+  .item9,
+  .itemC {
+    order: 3;
+  }
+}
+
+/* PC */
+@media only screen and (min-width: 1200px) {
+  .result,
+  .count {
+    font-size: 2rem;
+  }
+
+  .box-mode select {
+    font-size: 1.5rem;
+  }
+
+  .input {
+    margin-bottom: 5%;
+  }
+
+  .achive,
+  .time {
+    font-size: 1.5rem;
+  }
+
+  .button-panel {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .item1,
+  .item2,
+  .item3,
+  .item4,
+  .item5,
+  .itemNext {
+    order: 1;
+  }
+  .item6,
+  .item7,
+  .item8,
+  .item9,
+  .item0,
+  .itemC {
+    order: 2;
+  }
+
+  .button-main,
+  .frame {
+    width: 15rem;
+    height: 4rem;
+  }
+
+  button {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
+  }
+
+  .box-mode {
+    font-size: 2rem;
+  }
+
+  .answer {
+    width: 35%;
   }
 }
