@@ -133,11 +133,14 @@ body {
 }
 
 .count {
+  letter-spacing: 2px;
   margin-top: -50px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  color: #ef3349;
 }
 
 .result {
+  letter-spacing: 2px;
   margin-bottom: 20px;
 }
 
@@ -154,16 +157,15 @@ body {
   letter-spacing: 4px;
   margin: auto;
   width: auto;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
-  padding-bottom: 10px;
 }
 
 .answer {
   width: 80%;
   border-bottom: solid 4px #cbe2d7 !important;
+  padding-bottom: 10px;
   position: relative;
 }
 
@@ -179,7 +181,7 @@ body {
 }
 
 .row {
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 5px;
   display: flex;
   justify-content: space-between;
@@ -287,7 +289,7 @@ button:hover {
 @media only screen and (min-width: 1200px) {
   .result,
   .count {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .box-mode select {
@@ -300,7 +302,7 @@ button:hover {
 
   .achive,
   .time {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .button-panel {
@@ -327,12 +329,6 @@ button:hover {
   .frame {
     width: 15rem;
     height: 4rem;
-  }
-
-  button {
-    width: 5rem;
-    height: 5rem;
-    font-size: 2rem;
   }
 
   .box-mode {
