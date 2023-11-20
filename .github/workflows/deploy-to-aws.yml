@@ -1,4 +1,4 @@
-name: Deploy to AWS
+name: Deploy to AWS S3
 
 on:
   push:
@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout mã nguồn
+      - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18.18.2"
@@ -21,11 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Deploy to AWS Amplify
-        run: |
-          npm run build
-          npx amplify configure
-          npx amplify publish
+      - name: Build ứng dụng React
+        run: npm run build
+
+      - name: Deploy to AWS S3
+        run: aws s3 sync build/ s3://Finger_Math
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
