@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 18.18.2
 
       - name: Install Amplify CLI
         run: npm install -g @aws-amplify/cli
