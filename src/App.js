@@ -31,7 +31,6 @@ function App() {
             <div className='mode-time'>
               <label htmlFor='level-time'>Chọn thời gian:</label>
               <select id='level-time'
-
                 value={questionTime}
                 onChange={handleQuestionTime}>
                 <option value='10'>10s/question</option>

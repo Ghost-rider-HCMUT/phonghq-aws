@@ -167,6 +167,7 @@ body {
 }
 
 .answer {
+  color: #2bcb9a;
   width: 80%;
   border-bottom: solid 4px #cbe2d7 !important;
   padding-bottom: 10px;
