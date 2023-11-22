@@ -26,10 +26,10 @@ function App() {
     return (
       <>
         <div className='box-mode'>
-          <h2>Mời chọn chế độ chơi</h2>
+          <h2>Choose a game mode</h2>
           <div className='mode'>
             <div className='mode-time'>
-              <label htmlFor='level-time'>Chọn thời gian:</label>
+              <label htmlFor='level-time'>Set time:</label>
               <select id='level-time'
                 value={questionTime}
                 onChange={handleQuestionTime}>
@@ -40,16 +40,16 @@ function App() {
               </select>
             </div>
             <div className='mode-operator'>
-              <label htmlFor='operator'>Chọn phép toán:</label>
+              <label htmlFor='operator'>Set operator:</label>
               <select id='operator'
                 value={questionOperator}
                 onChange={handleQuestionOperator}
               >
-                <option value='random'>Ngẫu nhiên</option>
-                <option value='+'>Cộng (+)</option>
-                <option value='-'>Trừ (-)</option>
-                <option value='*'>Nhân (*)</option>
-                <option value='/'>Chia (/)</option>
+                <option value='random'>Random</option>
+                <option value='+'>Summation (+)</option>
+                <option value='-'>Subtraction (-)</option>
+                <option value='*'>Multiplication (*)</option>
+                <option value='/'>Division (/)</option>
               </select>
             </div>
 
@@ -71,8 +71,8 @@ function App() {
   function Complete() {
     let medal = 'medal'
     let note = 'note'
-    let score = `Thành tích: ${achives}/100`
-    let notes = 'Chưa đủ để nhận thưởng'
+    let score = `Achievements: ${achives}/100`
+    let notes = 'Not enough to receive a reward'
     if (achives < 60) {
       medal = 'medal'
       note = 'note medal4'
@@ -111,7 +111,7 @@ function App() {
   // Component Game
   function Game() {
     const next = '>>'
-    const [result, setResult] = useState('Chính xác')
+    const [result, setResult] = useState('Correct !!')
     const [question, setQuestion] = useState(`20 ${questionOperator === 'random' ? '+' : questionOperator} 5 = `)
     const [answer, setAnswer] = useState(eval(`20 ${questionOperator === 'random' ? '+' : questionOperator} 5`))
     const [count, setCount] = useState(0)
@@ -153,12 +153,9 @@ function App() {
               }
             }
             let question = `${element_1} ${operator} ${element_2} =`
-            // if (result === 'Biểu thức chính xác') {
-            //   achive = achive + 10;
-            // }
             setQuestion(question)
             setCount(prev => prev + 1)
-            setResult('Nhập đáp án')
+            setResult('Enter the answer')
             setInput('0')
             setAnswer('')
             setTimer(questionTime)
@@ -166,7 +163,12 @@ function App() {
           }
           break
         default:
-          setInput(input === '0' ? value : input + value)
+          if (input.length > 5) {
+            alert('Results are less than 5 characters')
+          } else {
+            setInput(input === '0' ? value : input + value)
+          }
+
           break
       }
     }
@@ -175,9 +177,9 @@ function App() {
       const arrMath = question.split('=')
       setAnswer(eval(arrMath[0]))
       if (eval(arrMath[0]) != input) {
-        setResult('Biểu thức sai')
+        setResult('Incorrect !')
       } else {
-        setResult('Biểu thức chính xác')
+        setResult('Correct !!')
         achive = achive + 10
       }
       setDisabled(true)
@@ -206,32 +208,32 @@ function App() {
     const conclude = `${question} ${answer} `
     return (
       <>
-        <h5 className='count'>{count == 0 ? 'Ví dụ mẫu' : `Câu hỏi số ${count} `}</h5>
-        <h6 className="result" style={{ color: result == 'Biểu thức sai' ? 'red' : result === 'Biểu thức chính xác' ? 'green' : 'black' }} >{result}</h6>
+        <h5 className='count'>{count == 0 ? 'Sample example' : `Question number ${count} `}</h5>
+        <h6 className="result" style={{ color: result == 'Incorrect !!' ? 'red' : result === 'Correct !!' ? 'green' : 'black' }} >{result}</h6>
         <div className="calculator" id='calculator' >
-          <div className='input' style={{ color: result == 'Biểu thức sai' ? 'red' : result === 'Biểu thức chính xác' ? 'green' : 'black' }}>
+          <div className='input' style={{ color: result == 'Incorrect !!' ? 'red' : result === 'Correct !!' ? 'green' : 'black' }}>
             {conclude}
           </div>
           <div className="answer">{input} <span onClick={handleDelete}>&times;</span></div>
           <div className='row'>
-            <p className='achive'>{`Điểm: ${achive} /100`}</p>
-            <span className='time'>{`Thời gian: ${timer} giây`}</span>
+            <p className='achive'>{`Score: ${achive} /100`}</p>
+            <span className='time'>{`Time: ${timer} giây`}</span>
           </div>
           <div className="button-panel">
-            <button className='item1' onClick={() => handleClick('1')}>1</button>
-            <button className='item2' onClick={() => handleClick('2')}>2</button>
-            <button className='item3' onClick={() => handleClick('3')}>3</button>
-            <button className='item4' onClick={() => handleClick('4')}>4</button>
-            <button className='item5' onClick={() => handleClick('5')}>5</button>
-            <button className='itemNext next' onClick={() => handleClick('>>')} >{next}</button>
-            <button className='item6' onClick={() => handleClick('6')}>6</button>
-            <button className='item7' onClick={() => handleClick('7')}>7</button>
-            <button className='item8' onClick={() => handleClick('8')}>8</button>
-            <button className='item9' onClick={() => handleClick('9')}>9</button>
-            <button className='item0' onClick={() => handleClick('0')}>0</button>
-            <button className='itemC' onClick={() => handleClick('C')}>C</button>
+            <button className='item1' disabled={count === 0 ? true : false} onClick={() => handleClick('1')}>1</button>
+            <button className='item2' disabled={count === 0 ? true : false} onClick={() => handleClick('2')}>2</button>
+            <button className='item3' disabled={count === 0 ? true : false} onClick={() => handleClick('3')}>3</button>
+            <button className='item4' disabled={count === 0 ? true : false} onClick={() => handleClick('4')}>4</button>
+            <button className='item5' disabled={count === 0 ? true : false} onClick={() => handleClick('5')}>5</button>
+            <button className='itemNext' onClick={() => handleClick('>>')} >{next}</button>
+            <button className='item6' disabled={count === 0 ? true : false} onClick={() => handleClick('6')}>6</button>
+            <button className='item7' disabled={count === 0 ? true : false} onClick={() => handleClick('7')}>7</button>
+            <button className='item8' disabled={count === 0 ? true : false} onClick={() => handleClick('8')}>8</button>
+            <button className='item9' disabled={count === 0 ? true : false} onClick={() => handleClick('9')}>9</button>
+            <button className='item0' disabled={count === 0 ? true : false} onClick={() => handleClick('0')}>0</button>
+            <button className='itemC' disabled={count === 0 ? true : false} onClick={() => handleClick('C')}>C</button>
           </div>
-          <button className='button-main' type='submit' onClick={handleSubmitClick} disabled={disabled}>SUBMIT</button>
+          <button className={count === 0 ? 'hide' : 'button-main'} type='submit' onClick={handleSubmitClick} disabled={disabled}>SUBMIT</button>
         </div>
         <div className='frame'>
         </div>

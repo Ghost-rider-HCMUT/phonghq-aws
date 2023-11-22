@@ -19,12 +19,13 @@ body {
 }
 
 .box-mode {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   font-size: 1rem;
   width: 100%;
 }
 
 .box-mode h2 {
+  font-size: 0.75 !important;
   text-align: center;
 }
 
@@ -36,7 +37,7 @@ body {
 .box-mode select {
   height: auto;
   box-shadow: 0px 3px 4px gray;
-  font-size: 0.75rem;
+  /* font-size: 4rem; */
   width: 40%;
   background-color: aquamarine;
   font-family: "Mochiy Pop One", sans-serif;
@@ -63,6 +64,10 @@ body {
   transform: translateX(-50%);
   font-weight: bold;
   font-family: "Mochiy Pop One", sans-serif;
+}
+
+.hide {
+  display: none;
 }
 
 .button-main:hover {
@@ -262,7 +267,7 @@ button:hover {
   }
 
   .answer {
-    width: 40%;
+    width: 60%;
   }
 
   .button-panel {
@@ -290,10 +295,29 @@ button:hover {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+
+  .button-panel {
+    gap: 0.5rem;
+  }
+
+  .button-panel button {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .frame {
+    height: 3rem;
+  }
+}
+
 /* PC */
 @media only screen and (min-width: 1200px) {
   html {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .result,
@@ -302,7 +326,7 @@ button:hover {
   }
 
   .box-mode select {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .achive,
@@ -341,6 +365,6 @@ button:hover {
   }
 
   .answer {
-    width: 30%;
+    width: 40%;
   }
 }
