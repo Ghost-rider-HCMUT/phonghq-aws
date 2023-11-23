@@ -1,5 +1,5 @@
 html {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 body {
@@ -210,31 +210,28 @@ body {
 .button-panel {
   display: grid;
   gap: 0.4rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   margin-bottom: 1rem;
 }
 
-.itemC,
-.item0,
-.itemNext {
-  order: 1;
-}
-.item1,
-.item2,
-.item3 {
-  order: 2;
-}
-.item4,
-.item5,
-.item6 {
-  order: 3;
-}
-.item7,
-.item8,
-.item9 {
-  order: 4;
-}
-
+ .item1,
+  .item2,
+  .item3,
+  .itemNext {
+    order: 1;
+  }
+  .item4,
+  .item5,
+  .item6,
+  .item0 {
+    order: 2;
+  }
+  .item7,
+  .item8,
+  .item9,
+  .itemC {
+    order: 3;
+  }
 .button-panel button {
   font-family: "Mochiy Pop One", sans-serif;
   width: 4rem;
@@ -272,26 +269,6 @@ button:hover {
 
   .button-panel {
     gap: 0.25rem;
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .item1,
-  .item2,
-  .item3,
-  .itemNext {
-    order: 1;
-  }
-  .item4,
-  .item5,
-  .item6,
-  .item0 {
-    order: 2;
-  }
-  .item7,
-  .item8,
-  .item9,
-  .itemC {
-    order: 3;
   }
 }
 
