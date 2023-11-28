@@ -217,7 +217,7 @@ function App() {
           <div className="answer">{input} <span onClick={handleDelete}>&times;</span></div>
           <div className='row'>
             <p className='achive'>{`Score: ${achive} /100`}</p>
-            <span className='time'>{`Time: ${timer} giây`}</span>
+            <span className='time'>{`Time: ${timer} s`}</span>
           </div>
           <div className="button-panel">
             <button className='item1' disabled={count === 0 ? true : false} onClick={() => handleClick('1')}>1</button>
